@@ -6,13 +6,14 @@ import {
 } from "@/components/ui/accordion"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import { CirclePlus } from "lucide-react"
+import { CirclePlus, Heart } from "lucide-react"
 import { Metadata } from "next"
-import ProductCard from "./_components/ProductCard"
-import { ProfileCard } from "./_components/ProfileCard"
-import { QRCodeCard } from "./_components/QRCodeCard"
+import ProductCard from "../components/ProductCard"
+import { ProfileCard } from "../components/ProfileCard"
+import { QRCodeCard } from "../components/QRCodeCard"
+import Image from "next/image"
 
-const PRODUCTS_COUNTS = 12
+const PRODUCTS_COUNTS = 5
 
 export const metadata: Metadata = {
   title: "Mazaady - Homepage",
@@ -117,11 +118,7 @@ export default async function Page() {
           </div>
           <div className="flex flex-col gap-6">
             {Array.from({ length: PRODUCTS_COUNTS }).map((_, index) => (
-              <ProductCard
-                key={index}
-                isHotSeller={PRODUCTS_COUNTS % index === 0}
-                isFav={PRODUCTS_COUNTS % index !== 0}
-              />
+              <ProductCard key={index} />
             ))}
           </div>
         </section>

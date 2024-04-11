@@ -1,7 +1,7 @@
 "use client"
 
-import { ICategory } from "@/@types/model"
-import { addNewProductService } from "@/app/_services/addNewProductService"
+import { ICategory } from "@/types/model"
+import { addNewProductService } from "@/services/addNewProductService"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -19,7 +19,6 @@ export function AddNewProductForm({
     subCategory,
     children,
     childValues,
-    isChildrenLoading,
     selectCategory,
     selectSubCategory,
     selectOption,
@@ -80,17 +79,8 @@ export function AddNewProductForm({
           <Input type="text" value="" onChange={() => {}} />
         ) : null}
       </div>
-      {isChildrenLoading ? (
-        <div className="flex flex-col w-full gap-3">
-          {Array.from({ length: 3 }).map((_, i) => (
-            <div
-              key={i}
-              className="w-full h-10 rounded-sm bg-gradient-to-r from-slate-200 to-gray-50 bg-opacity-70"
-            ></div>
-          ))}
-        </div>
-      ) : null}
-      {subCategory.value && !isChildrenLoading ? (
+
+      {subCategory.value ? (
         <>
           {children.map((item) => {
             return (

@@ -1,6 +1,6 @@
 import { Metadata } from "next"
-import { AddNewProductForm } from "../_components/AddNewProductForm"
-import CreatedProductTable from "../_components/CreatedProductTable"
+import { AddNewProductForm } from "../../components/AddNewProductForm"
+import CreatedProductTable from "../../components/CreatedProductTable"
 import { fetCategories } from "../actions"
 
 export const metadata: Metadata = {

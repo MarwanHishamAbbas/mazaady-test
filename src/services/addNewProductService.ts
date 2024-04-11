@@ -1,4 +1,4 @@
-import { ICategory, IChild } from "@/@types/model"
+import { ICategory, IChild } from "@/types/model"
 import { fetChildrenOption, fetChildrenProps } from "@/app/actions"
 import { create } from "zustand"
 
@@ -30,7 +30,6 @@ export interface IAddNewProductService {
     }
   >
 
-  isChildrenLoading: boolean
   showTable: boolean
   result: { label: string; value: string }[]
   changeOther: (childId: number, value: number, other: string) => void
@@ -57,7 +56,7 @@ export const addNewProductService = create<IAddNewProductService>(
       label: "",
     },
     children: [],
-    isChildrenLoading: false,
+
     optionsValues: new Map(),
     childValues: new Map(),
     showTable: false,
@@ -81,7 +80,6 @@ export const addNewProductService = create<IAddNewProductService>(
           label,
         },
         optionsValues: new Map(),
-        isChildrenLoading: true,
       }))
 
       const data = await fetChildrenProps(value!)
@@ -106,7 +104,6 @@ export const addNewProductService = create<IAddNewProductService>(
       set(() => ({
         children: data || [],
         childValues: InitOptions,
-        isChildrenLoading: false,
       }))
     },
     async selectOption(childId, option, hasChild) {

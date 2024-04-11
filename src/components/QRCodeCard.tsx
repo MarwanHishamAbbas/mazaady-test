@@ -1,9 +1,9 @@
-import { CloudDownload, Eye, Share2 } from "lucide-react";
-import Image from "next/image";
-import { ReactNode } from "react";
+import { CloudDownload, Eye, Share2 } from "lucide-react"
+import Image from "next/image"
+import { ReactNode } from "react"
 
 function QRCodeWrapper({ children }: { children: ReactNode }) {
-  return <div className="w-full bg-white rounded-2xl p-6">{children}</div>;
+  return <div className="w-full bg-white rounded-2xl px-6 py-3">{children}</div>
 }
 
 function QRCodeHeader() {
@@ -14,7 +14,7 @@ function QRCodeHeader() {
         download the QR code or share it with your friends.
       </p>
     </div>
-  );
+  )
 }
 
 function QRCodeSource() {
@@ -38,7 +38,7 @@ function QRCodeSource() {
         <p className="text-sm">Follow Us on Mazaady</p>
       </div>
     </div>
-  );
+  )
 }
 
 function QRCodeBar() {
@@ -51,7 +51,7 @@ function QRCodeBar() {
         <CloudDownload className="cursor-pointer" />
       </div>
     </div>
-  );
+  )
 }
 
 export const QRCodeCard = {
@@ -59,4 +59,4 @@ export const QRCodeCard = {
   bar: QRCodeBar,
   header: QRCodeHeader,
   source: QRCodeSource,
-};
+}

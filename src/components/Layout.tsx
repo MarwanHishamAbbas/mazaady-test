@@ -1,15 +1,20 @@
-"use client";
-import ImageResponsive from "@/components/ImageResponsive";
-import { Button } from "@/components/ui/button";
+"use client"
+import ImageResponsive from "@/components/ImageResponsive"
+import { Button, buttonVariants } from "@/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Separator } from "@/components/ui/separator";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { cn } from "@/lib/utils";
+} from "@/components/ui/dropdown-menu"
+import { Separator } from "@/components/ui/separator"
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+import { cn } from "@/lib/utils"
 import {
   Bell,
   CirclePlus,
@@ -20,71 +25,63 @@ import {
   PlusCircle,
   Rss,
   Search,
-} from "lucide-react";
-import Image from "next/image";
+} from "lucide-react"
+import Image from "next/image"
 
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
+import Link from "next/link"
+import { usePathname, useRouter } from "next/navigation"
 
 function NavLink({ url, title }: { url: string; title: string }) {
-  const pathname = usePathname();
+  const pathname = usePathname()
 
   return (
     <div
       className={cn(
         "relative h-full text-gray-400 font-medium flex items-center transition-all duration-75 ease-in",
         {
-          "after:content-[''] after:absolute after:bottom-0 after:right-0 after:left-0 after:h-1.5 after:rounded-t-md after:bg-pink-800 after:transition after:delay-75 after:ease-in text-pink-800 font-semibold":
+          "after:content-[''] after:absolute after:bottom-0 after:right-0 after:left-0 after:h-1.5 after:rounded-t-md after:bg-[#D20653] text-[#D20653] font-semibold":
             pathname === url,
         }
       )}
     >
       <Link href={url}>{title}</Link>
     </div>
-  );
+  )
 }
 
 export default function Layout() {
-  const router = useRouter();
-  const [open, setOpen] = useState<boolean>(false);
+  const router = useRouter()
 
   return (
     <div className="shadow w-full bg-white">
       <div className="container grid grid-cols-2 h-16">
         <div className="w-auto col-span-1 flex flex-nowrap items-center gap-8">
-          <Sheet open={open} onOpenChange={setOpen}>
+          <Sheet>
             <SheetTrigger className="block lg:hidden">
               <Menu />
             </SheetTrigger>
             <SheetContent className="w-5/6 sm:w-4/6 md:w-1/3 lg:w-2/6 flex flex-col justify-start items-start gap-6 py-6">
-              <Link href="/" className="flex items-center gap-2">
-                <Home />
-                Home
-              </Link>
-              <Link href="/blog" className="flex items-center gap-2">
-                <Rss />
-                Blog
-              </Link>
-              <Link href="/gifts" className="flex items-center gap-2">
-                <Gift />
-                Gifts
-              </Link>
+              <SheetClose asChild>
+                <Link href="/" className="flex items-center gap-2">
+                  <Home />
+                  Home
+                </Link>
+              </SheetClose>
               <Separator />
-              <Button
-                variant="default"
-                size="lg"
-                className="flex flex-nowrap items-center bg-gradient-to-r from-pink-600 to-orange-400 text-white font-medium p-3 rounded-xl py-4"
-                onClick={() => {
-                  router.push("/add-new-product", {
-                    scroll: true,
-                  });
-                  setOpen(false);
-                }}
-              >
-                <PlusCircle />
-                <span>Add a new Product</span>
-              </Button>
+              <SheetClose asChild>
+                <Link
+                  href="/add-new-product"
+                  className={buttonVariants({
+                    variant: "default",
+                    size: "lg",
+                    className:
+                      "flex flex-nowrap items-center bg-gradient-to-r from-pink-600 to-orange-400 text-white font-medium p-3 rounded-xl py-4",
+                  })}
+                >
+                  <PlusCircle />
+                  <span>Add a new Product</span>
+                </Link>
+              </SheetClose>
             </SheetContent>
           </Sheet>
           <Link href="/">
@@ -107,18 +104,14 @@ export default function Layout() {
           <Separator orientation="vertical" color="gray" />
           <Bell />
           <Separator orientation="vertical" color="gray" />
-          <DropdownMenu>
-            <DropdownMenuTrigger className="rounded-full w-10 h-10">
-              <div className=" w-full h-full rounded-full overflow-hidden">
-                <ImageResponsive src="/user.png" alt="Sara Ahmed" />
-              </div>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem>profile</DropdownMenuItem>
-              <DropdownMenuItem>settings</DropdownMenuItem>
-              <DropdownMenuItem>Sign out</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <Image
+            src="/user.png"
+            width={1000}
+            height={1000}
+            className="rounded-full size-10"
+            alt="User"
+          />
+
           <Separator
             orientation="vertical"
             color="gray"
@@ -145,5 +138,5 @@ export default function Layout() {
         </div>
       </div>
     </div>
-  );
+  )
 }
