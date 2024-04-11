@@ -55,7 +55,6 @@ export function AddNewProductForm({
             selectCategory(val?.value || 0, val?.label || "", list)
           }}
           value={category}
-          isClearable
           id="CATEGORY"
         />
       </div>
@@ -72,7 +71,6 @@ export function AddNewProductForm({
           }}
           value={subCategory}
           isDisabled={!category.value}
-          isClearable
           id="SUB_CATEGORY"
         />
         {subCategory.value === null ? (
@@ -122,7 +120,6 @@ export function AddNewProductForm({
                           option.id === childValues.get(String(item.id))?.value
                       )?.child,
                     }}
-                    isClearable
                   />
                   {childValues.has(String(item.id)).valueOf() ? (
                     childValues.get(String(item.id))?.value === -1 ? (
@@ -142,7 +139,7 @@ export function AddNewProductForm({
       ) : null}
 
       <Button type="submit" className="w-full" size="lg">
-        Add a new product
+        Submit
       </Button>
     </form>
   )

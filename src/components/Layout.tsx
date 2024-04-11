@@ -70,7 +70,7 @@ export default function Layout() {
               <Separator />
               <SheetClose asChild>
                 <Link
-                  href="/add-new-product"
+                  href="/ add-product"
                   className={buttonVariants({
                     variant: "default",
                     size: "lg",
@@ -122,7 +122,7 @@ export default function Layout() {
             size="lg"
             className="hidden lg:flex flex-nowrap items-center bg-gradient-to-r from-pink-600 to-orange-400 text-white font-medium p-3 rounded-xl py-4 mx-4"
             onClick={() =>
-              router.push("/add-new-product", {
+              router.push("/add-product", {
                 scroll: true,
               })
             }
