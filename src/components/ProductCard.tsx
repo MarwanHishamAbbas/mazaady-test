@@ -9,22 +9,22 @@ export default function ProductCard() {
       <div className="relative flex gap-4">
         <div
           className={
-            "absolute top-2 left-2 cursor-pointer block lg:hidden z-20 p-1 rounded-full bg-white"
+            "absolute top-2 left-2 cursor-pointer block md:hidden z-20 p-1 rounded-full bg-white"
           }
         >
           <Heart color={"black"} />
         </div>
-        <div className="relative">
+        <div className="relative w-[100px] h-[80px] md:w-[145px] md:h-[130px]">
           <Image
             src="/product.png"
             width={1000}
             height={1000}
-            className="w-[100px] h-full lg:w-[145px] lg:h-[130px] object-fill"
+            className="w-full h-full  object-fill"
             alt=""
           />
           <div
             className={cn(
-              "absolute bottom-0 bg-pink-600 text-white z-20 rounded-tl-full rounded-br-full right-0 py-1 px-2 lg:py-2 lg:px-3 text-xs text-center",
+              "absolute bottom-0 bg-pink-600 text-white z-20 rounded-tl-full rounded-br-full right-0 py-1 px-2 md:py-2 md:px-3 text-xs text-center",
               {
                 "bg-orange-500": true,
               }
@@ -34,14 +34,14 @@ export default function ProductCard() {
           </div>
         </div>
 
-        <div className="text-xs lg:text-base space-y-2">
+        <div className="text-xs md:text-base space-y-2">
           <h3>Six-piece clothing set blouse - pants - hat and ...</h3>
           <p className="text-gray-500">
             starting price <strong className="text-black">1000 EGP</strong>
           </p>
           <div>
             <h4 className="text-gray-500 mb-1">Lot Starts in</h4>
-            <div className="flex justify-between gap-3">
+            <div className="flex justify-between gap-1 text-[8px] md:text-xs">
               <p className="bg-orange-100 py-1.5 px-3 text-orange-500 rounded-full flex-1 text-center">
                 2 Days
               </p>
@@ -56,7 +56,7 @@ export default function ProductCard() {
         </div>
       </div>
       <Heart
-        className={"cursor-pointer hidden lg:block"}
+        className={"cursor-pointer hidden md:block"}
         fill={true ? "red" : "transparent"}
         color={true ? "red" : "black"}
       />

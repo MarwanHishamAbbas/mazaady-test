@@ -31,27 +31,26 @@ function profileCardContent() {
         I am Hala Ahmed, I am the owner of the local brand called Beauty which
         is for Mackeup and Skin Care.
       </CardDescription>
-      <div className="flex flex-wrap lg:flex-nowrap justify-between gap-4">
-        <div className="bg-[#FFF5E9] flex flex-nowrap items-center gap-2 rounded-2xl px-2 py-2 lg:px-2 lg:py-3 flex-1 text-xs font-normal">
+      <div className="flex flex-wrap justify-between gap-4">
+        <div className="bg-[#FFF5E9] flex flex-nowrap items-center gap-2 rounded-2xl px-2 py-2 lg:px-2 lg:py-3 flex-1 text-[10px] lg:text-xs font-normal">
           <UserRoundCheck className="text-orange-400" />
           <div>
             <span className="block font-bold">5</span>
             <span className="text-orange-400">following</span>
           </div>
         </div>
-        <div className="bg-[#FFF5E9] flex flex-nowrap items-center gap-2 rounded-2xl px-2 py-2 lg:px-2 lg:py-3 flex-1 text-xs font-normal">
+        <div className="bg-[#FFF5E9] flex flex-nowrap items-center gap-2 rounded-2xl px-2 py-2 lg:px-2 lg:py-3 flex-1 text-[10px] lg:text-xs font-normal">
           <UsersRound className="text-orange-400" />
           <div>
             <span className="block font-bold">20</span>
             <span className="text-orange-400">followers</span>
           </div>
         </div>
-        <div className="bg-[#FFF5E9] flex flex-nowrap items-center gap-2 rounded-2xl px-2 py-2 lg:px-2 lg:py-3 flex-1 text-xs font-normal">
+        <div className="bg-[#FFF5E9] flex flex-nowrap items-center gap-2 rounded-2xl px-2 py-2 lg:px-2 lg:py-3 flex-1 text-[10px] lg:text-xs font-normal">
           <Star className="text-orange-400" />
           <div>
             <span className="block font-bold">
-              4.2{" "}
-              <small className="text-xs text-gray-600 lowercase">(15)</small>
+              4.2 <small className=" text-gray-600 lowercase">(15)</small>
             </span>
             <span className="text-orange-400">following</span>
           </div>
